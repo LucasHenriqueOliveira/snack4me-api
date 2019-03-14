@@ -9,6 +9,14 @@ $api->post('auth/authorize', [
     'uses' => AuthenticationController::class . '@authenticate',
     'as' => 'sign_in'
 ]);
+$api->get('/auth/facebook', [
+    'uses' => AuthenticationController::class . '@facebook',
+    'as' => 'sign_in_facebook'
+]);
+$api->get('/auth/facebook/callback', [
+    'uses' => AuthenticationController::class . '@facebookCallback',
+    'as' => 'sign_in_facebook'
+]);
 
 $api->group(['middleware' => 'api.auth',  'prefix' => 'auth'], function () use ($api) {
     $api->get('/logout', [

@@ -100,6 +100,7 @@ $app->register(\Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 $app->register(Dingo\Api\Provider\LumenServiceProvider::class);
 $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
 $app->register(\SwaggerLume\ServiceProvider::class);
+$app->register(\SocialiteProviders\Manager\ServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

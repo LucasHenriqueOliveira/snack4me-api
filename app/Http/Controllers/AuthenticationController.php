@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Crypt;
+use Laravel\Socialite\Facades\Socialite;
 use Tymon\JWTAuth\Claims\Collection;
 use Tymon\JWTAuth\JWTAuth;
 use Illuminate\Http\Request;
@@ -183,5 +184,17 @@ class AuthenticationController extends Controller
             throw new \Symfony\Component\HttpKernel\Exception\NotAcceptableHttpException('token not acceptable');
         }
         return response()->json(['payload' => $this->auth->payload()->toArray()]);
+    }
+
+    public function facebook() {
+        app()->configure('services');
+        return Socialite::with('facebook')->stateless()->redirect();
+    }
+
+    public function facebookCallback() {
+        app()->configure('services');
+        $user = Socialite::driver('facebook')->user();
+        var_dump($user);
+        exit;
     }
 }
