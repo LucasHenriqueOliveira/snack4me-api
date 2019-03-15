@@ -193,7 +193,7 @@ class AuthenticationController extends Controller
 
     public function facebookCallback() {
         app()->configure('services');
-        $user = Socialite::driver('facebook')->user();
+        $user = Socialite::driver('facebook')->stateless()->user();
         var_dump($user);
         exit;
     }
