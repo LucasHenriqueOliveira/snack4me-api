@@ -74,7 +74,6 @@ class UserController extends Controller
             'password' => $request->post('password'),
             'cpf' => $request->post('cpf'),
             'profile_id' => $request->post('profile_id'),
-            'hotel_id' => $request->post('hotel_id'),
         ]);
         
         if (!$user) {

@@ -15,7 +15,6 @@ trait ValidatesUserRequests
             'password'      => 'required|string|min:8',
             'cpf'           => 'required|digits:11',
             'profile_id'    => 'required|exists:profiles,id',
-            'hotel_id'      => 'required|exists:hotels,id',
         ]);
     }
 
@@ -27,7 +26,6 @@ trait ValidatesUserRequests
             'password'      => 'required|string|min:8',
             'cpf'           => 'required|digits:11',
             'profile_id'    => 'required|exists:profiles,id',
-            'hotel_id'      => 'required|exists:hotels,id',
         ]);
     }
 
