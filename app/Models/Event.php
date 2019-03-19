@@ -4,14 +4,19 @@ namespace App\Models;
 
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Event extends Model
 {
+    use SoftDeletes;
+
     protected $errors = [];
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
-        'name'
+        'title',
+        'starts_at',
+        'ends_at'
     ];
 
     public function store($data) {
@@ -22,8 +27,8 @@ class Event extends Model
             }
             $event_fields = [
                 'title'      => $data['title'],
-                'starts_ad'  => $data['starts_at'],
-                'ends_ad'    => $data['ends_ad'],
+                'starts_at'  => $data['starts_at'],
+                'ends_at'    => $data['ends_at'],
             ];
             $event = self::create($event_fields);
         } catch (\Exception $e) {
@@ -43,8 +48,8 @@ class Event extends Model
             $event_fields = [
                 'id'        => $data['id'],
                 'title'     => $data['title'],
-                'starts_ad' => $data['starts_at'],
-                'ends_ad'   => $data['ends_ad'],
+                'starts_at' => $data['starts_at'],
+                'ends_at'   => $data['ends_at'],
             ];
             $event->update($event_fields);
         } catch (\Exception $e) {
