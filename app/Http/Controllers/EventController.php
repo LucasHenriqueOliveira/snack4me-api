@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Validators\ValidatesEventRequests;
 use App\Models\Event;
 use App\Transformers\EventTransform;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
