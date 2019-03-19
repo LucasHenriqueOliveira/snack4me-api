@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Events\Event;
 use App\Models\Profile;
 use App\Models\User;
+use App\Policies\EventPolicy;
 use App\Policies\ProfilePolicy;
 use App\Policies\UserPolicy;
 use Illuminate\Support\Facades\Gate;
@@ -42,6 +44,7 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::policy(User::class, UserPolicy::class);
         Gate::policy(Profile::class, ProfilePolicy::class);
+        Gate::policy(Event::class, EventPolicy::class);
 
         Gate::define('view', function($user) {
             return ($user->profile_id===2);
